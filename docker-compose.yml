@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+
+ client-resources-glr:
+  image: cismet/cids-glr
+  build: .
+  environment:
+  - CIDS_DISTRIBUTION_DIR=/cidsDistribution
+  - CIDS_EXTENSION=WuNDa
+  volumes:
+  - /home/jruiz/cidsDistribution:/cidsDistribution
