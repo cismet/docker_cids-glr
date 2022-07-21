@@ -1,13 +1,16 @@
 FROM gitlab/gitlab-runner:v15.2.0
 
-# JAVA
+# STUFF
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
     && apt-get update \
-    && apt-get -y --no-install-recommends install default-jdk
+    && apt-get -y --no-install-recommends install unzip
+
+# JAVA
+RUN apt-get -y --no-install-recommends install default-jdk
 
 # NODEJS
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt -y install nodejs 
+    && apt-get -y --no-install-recommends install nodejs 
 
 # CSCONF
 LABEL csonf_build=202207211632
